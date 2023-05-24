@@ -11,6 +11,9 @@
 		465CD4992A1E38C500EE26FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CD4982A1E38C500EE26FE /* ContentView.swift */; };
 		465CD49B2A1E38C600EE26FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465CD49A2A1E38C600EE26FE /* Assets.xcassets */; };
 		465CD49E2A1E38C600EE26FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465CD49D2A1E38C600EE26FE /* Preview Assets.xcassets */; };
+		465CD4A72A1E397C00EE26FE /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 465CD4A52A1E397C00EE26FE /* ToDo.xcdatamodeld */; };
+		465CD4A92A1E398A00EE26FE /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CD4A82A1E398A00EE26FE /* PersistenceManager.swift */; };
+		465CD4AB2A1E3ECB00EE26FE /* ToDoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CD4AA2A1E3ECB00EE26FE /* ToDoRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		465CD4982A1E38C500EE26FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		465CD49A2A1E38C600EE26FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		465CD49D2A1E38C600EE26FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		465CD4A62A1E397C00EE26FE /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
+		465CD4A82A1E398A00EE26FE /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		465CD4AA2A1E3ECB00EE26FE /* ToDoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +57,12 @@
 		465CD4952A1E38C500EE26FE /* understandcoredata */ = {
 			isa = PBXGroup;
 			children = (
+				465CD4A42A1E396A00EE26FE /* CoreData */,
 				465CD4962A1E38C500EE26FE /* understandcoredataApp.swift */,
 				465CD4982A1E38C500EE26FE /* ContentView.swift */,
 				465CD49A2A1E38C600EE26FE /* Assets.xcassets */,
 				465CD49C2A1E38C600EE26FE /* Preview Content */,
+				465CD4AA2A1E3ECB00EE26FE /* ToDoRow.swift */,
 			);
 			path = understandcoredata;
 			sourceTree = "<group>";
@@ -65,6 +73,15 @@
 				465CD49D2A1E38C600EE26FE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		465CD4A42A1E396A00EE26FE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				465CD4A52A1E397C00EE26FE /* ToDo.xcdatamodeld */,
+				465CD4A82A1E398A00EE26FE /* PersistenceManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				465CD4992A1E38C500EE26FE /* ContentView.swift in Sources */,
+				465CD4A72A1E397C00EE26FE /* ToDo.xcdatamodeld in Sources */,
+				465CD4AB2A1E3ECB00EE26FE /* ToDoRow.swift in Sources */,
 				465CD4972A1E38C500EE26FE /* understandcoredataApp.swift in Sources */,
+				465CD4A92A1E398A00EE26FE /* PersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +359,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		465CD4A52A1E397C00EE26FE /* ToDo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				465CD4A62A1E397C00EE26FE /* ToDo.xcdatamodel */,
+			);
+			currentVersion = 465CD4A62A1E397C00EE26FE /* ToDo.xcdatamodel */;
+			path = ToDo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 465CD48B2A1E38C500EE26FE /* Project object */;
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct understandcoredataApp: App {
+    @StateObject var persistenceManager = PersistenceManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(persistenceManager)
         }
     }
 }
