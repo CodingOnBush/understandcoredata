@@ -13,7 +13,7 @@ struct understandcoredataApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ToDoView()
                 .environmentObject(persistenceManager)
         }
     }

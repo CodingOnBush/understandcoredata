@@ -26,7 +26,7 @@ struct ToDoRow: View {
         .onChange(of: isDone) { newValue in
             if newValue != item.isCompleted {
                 item.isCompleted = newValue
-                // update the CoreData context with the updated object Object here...
+                persistenceManager.updateItem(item)
             }
         }
     }

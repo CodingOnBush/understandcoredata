@@ -31,7 +31,7 @@ struct AddItemView: View {
             Spacer()
             
             Button("Save Item") {
-                // TODO: ... to be coded...
+                persistenceManager.addToDoItem(description: itemDescription)
                 dismiss()
             }
             .buttonStyle(.borderedProminent)

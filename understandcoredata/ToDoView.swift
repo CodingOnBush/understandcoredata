@@ -35,10 +35,10 @@ struct ToDoView: View {
                 addItemButton
             }
             .onChange(of: showNotCompleted, perform: { newValue in
-                // TODO: ... to be coded...
+                persistenceManager.showNotCompleted = newValue
             })
             .onChange(of: sortedAlphabetically, perform: { newValue in
-                // TODO: ... to be coded...
+                persistenceManager.sortedAlphabetically = newValue
             })
             .animation(.default, value: persistenceManager.items)
             .navigationTitle("Core Data Demo")
@@ -84,7 +84,7 @@ struct ToDoView: View {
     func delete(at offsets: IndexSet) {
         guard let index = offsets.first else { return }
         let itm = persistenceManager.items[index]
-        // TODO: ... to be coded...
+        persistenceManager.deleteItem(itm)
     }
 }
 

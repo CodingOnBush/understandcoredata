@@ -14,6 +14,14 @@ class PersistenceManager: ObservableObject {
     lazy var moc = persistentContainer.viewContext
     @Published var items: [ToDoItem] = []
     
+    var showNotCompleted = false {
+        didSet { fetchAllToDoItems() }
+    }
+
+    var sortedAlphabetically = false {
+        didSet { fetchAllToDoItems() }
+    }
+    
     init(previewMode: Bool = false) {
         persistentContainer = NSPersistentContainer(name: "ToDo")
         
@@ -31,6 +39,8 @@ class PersistenceManager: ObservableObject {
         
         if previewMode {
             addMockData()
+        } else {
+            fetchAllToDoItems()
         }
     }
 }
@@ -39,6 +49,21 @@ extension PersistenceManager {
     
     func fetchAllToDoItems() {
         let fetchRequest: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
+        if showNotCompleted {
+            let notCompletedPredicate =  NSPredicate(format: "%K == false", #keyPath(ToDoItem.isCompleted))
+            fetchRequest.predicate = notCompletedPredicate
+        }
+        
+        var sortDescriptors: [NSSortDescriptor] = []
+        let sortedByCompletion = NSSortDescriptor(keyPath: \ToDoItem.isCompleted, ascending: true)
+        sortDescriptors = [sortedByCompletion]
+        
+        if sortedAlphabetically {
+            let sortedAlphabetically = NSSortDescriptor(keyPath: \ToDoItem.taskDescription, ascending: true)
+            sortDescriptors.append(sortedAlphabetically)
+        }
+        
+        fetchRequest.sortDescriptors = sortDescriptors
         do {
             items = try moc.fetch(fetchRequest)
         } catch {
@@ -79,5 +104,25 @@ extension PersistenceManager {
         itm03.isCompleted = false
         
         save(description: "Saved for mock")
+    }
+}
+
+
+extension PersistenceManager {
+    
+    func addToDoItem(description: String) {
+        let itm = ToDoItem(context: moc)
+        itm.taskDescription = description
+        itm.isCompleted = false
+        save(description: "Item added successfully")
+    }
+    
+    func updateItem(_ item: ToDoItem) {
+       save(description: "Item updated successfully")
+    }
+    
+    func deleteItem(_ item: ToDoItem) {
+        moc.delete(item)
+        save(description: "Item deleted successfully")
     }
 }
